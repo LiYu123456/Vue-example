@@ -1,28 +1,50 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+  <div>
+    <header class="site-header jumbotron">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <h1>请发表对React的评论</h1>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+      <Add/>
+      <List :comments="comments"/>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import Add from './components/Add.vue'
+import List from './components/List.vue'
 export default {
-  name: 'App',
+  data () {
+    return {
+      comments: [
+        {
+          name: 'BOB',
+          content: 'Vue 还不错'
+        },
+        {
+          name: 'Cat',
+          content: 'Vue So Easy'
+        },
+        {
+          name: 'BZ',
+          content: 'Vue So So'
+        }
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    Add,
+    List
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
